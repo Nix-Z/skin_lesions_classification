@@ -74,7 +74,7 @@ def visualize_data():
     # Save two random images from each category
     for lesion in lesion_types:
         for i in range(2):
-            image = open_random_image(os.path.join(os.getcwd(),f'tuberculosis_xray_data/{lesion}'))
+            image = open_random_image(os.path.join(os.getcwd(),f'lesions_image_data/{lesion}'))
             image.save(f'{lesion.replace(" ", "_").lower()}_{i+1}.jpg')
 
     return path, lesion_images
