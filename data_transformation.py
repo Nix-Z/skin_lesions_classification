@@ -9,10 +9,10 @@ from torchvision.datasets import ImageFolder
 from torchvision import datasets
 import pickle
 import itertools
-from datavisualization import visualise_data
+from datavisualization import visualize_data
 
 def transform_data():
-    path, lesion_images = visualise_data()
+    path, lesion_images = visualize_data()
     
     data_transform = torchvision.transforms.Compose(
     [
