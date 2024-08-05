@@ -41,8 +41,8 @@ def visualize_data():
 
     lesion_images = {}
     for lesion_type in lesion_types:
-        formatted_name = lesion.lower().replace(' ', '_').replace('-', '_') + '_images'
-        lesion_images[formatted_name] = os.listdir(os.path.join(os.getcwd(), f'lesions_image_data/{lesion}'))
+        formatted_name = lesion_type.lower().replace(' ', '_').replace('-', '_') + '_images'
+        lesion_images[formatted_name] = os.listdir(os.path.join(os.getcwd(), f'lesions_image_data/{lesion_type}'))
 
     '''
     actinic_keratoses_images = os.listdir(os.path.join(os.getcwd(),'lesions_image_data/Actinic keratoses'))
