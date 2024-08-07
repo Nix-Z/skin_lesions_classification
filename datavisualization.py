@@ -39,7 +39,7 @@ def visualize_data():
         'Vascular lesions'
     ]
 
-    total_images = {}
+    total_images = []
     for lesion_type in lesion_types:
         formatted_name = lesion_type.lower().replace(' ', '_').replace('-', '_') + '_images'
         total_images += os.listdir(os.path.join(os.getcwd(), f'lesions_image_data/{lesion_type}'))
