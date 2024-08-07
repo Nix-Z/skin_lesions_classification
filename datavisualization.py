@@ -39,10 +39,10 @@ def visualize_data():
         'Vascular lesions'
     ]
 
-    lesion_images = {}
+    total_images = {}
     for lesion_type in lesion_types:
         formatted_name = lesion_type.lower().replace(' ', '_').replace('-', '_') + '_images'
-        lesion_images[formatted_name] = os.listdir(os.path.join(os.getcwd(), f'lesions_image_data/{lesion_type}'))
+        total_images += os.listdir(os.path.join(os.getcwd(), f'lesions_image_data/{lesion_type}'))
 
     '''
     actinic_keratoses_images = os.listdir(os.path.join(os.getcwd(),'lesions_image_data/Actinic keratoses'))
@@ -77,6 +77,6 @@ def visualize_data():
             image = open_random_image(os.path.join(os.getcwd(),f'lesions_image_data/{lesion}'))
             image.save(f'{lesion.replace(" ", "_").lower()}_{i+1}.jpg')
 
-    return path, lesion_images
+    return path, total_images
 
 visualize_data()
