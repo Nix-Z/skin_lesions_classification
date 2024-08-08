@@ -12,7 +12,7 @@ import itertools
 from datavisualization import visualize_data
 
 def transform_data():
-    path, total_images = visualize_data()
+    path, lesion_images = visualize_data()
     
     data_transform = torchvision.transforms.Compose(
     [
@@ -21,7 +21,10 @@ def transform_data():
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
     ])
-    
+
+    # Combining all image lists into a single list
+    total_list = list(itertools.chain(*lesion_images))
+
     model_dataset = datasets.ImageFolder(path, transform=data_transform)
     img, ann = model_dataset[0]
     print("iiiiiiii",img)
