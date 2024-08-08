@@ -39,27 +39,10 @@ def visualize_data():
         'Vascular lesions'
     ]
 
-    total_images = []
+    lesion_images = {}
     for lesion_type in lesion_types:
         formatted_name = lesion_type.lower().replace(' ', '_').replace('-', '_') + '_images'
-        total_images += os.listdir(os.path.join(os.getcwd(), f'lesions_image_data/{lesion_type}'))
-
-    '''
-    actinic_keratoses_images = os.listdir(os.path.join(os.getcwd(),'lesions_image_data/Actinic keratoses'))
-    basal_cell_carcinoma_images = os.listdir(os.path.join(os.getcwd(),'lesions_image_data/Basal cell carcinoma'))
-    benign_keratosis_lesion_images = os.listdir(os.path.join(os.getcwd(),'lesions_image_data/Benign keratosis-like lesions'))
-    chickenpox_images = os.listdir(os.path.join(os.getcwd(),'lesions_image_data/Chickenpox'))
-    cowpox_images = os.listdir(os.path.join(os.getcwd(),'lesions_image_data/Cowpox'))
-    dermatofibroma_images = os.listdir(os.path.join(os.getcwd(),'lesions_image_data/Dermatofibroma'))
-    healthy_images = os.listdir(os.path.join(os.getcwd(),'lesions_image_data/Healthy'))
-    hfmd_images = os.listdir(os.path.join(os.getcwd(),'lesions_image_data/HFMD'))
-    measles_images = os.listdir(os.path.join(os.getcwd(),'lesions_image_data/Measles'))
-    melanocytic_nevi_images = os.listdir(os.path.join(os.getcwd(),'lesions_image_data/Melanocytic nevi'))
-    melanoma_images = os.listdir(os.path.join(os.getcwd(),'lesions_image_data/Melanoma'))
-    monkeypox_images = os.listdir(os.path.join(os.getcwd(),'lesions_image_data/Monkeypox'))
-    squamous_cell_carcinoma_images = os.listdir(os.path.join(os.getcwd(),'lesions_image_data/Squamous cell carcinoma'))
-    vascular_lesions_images = os.listdir(os.path.join(os.getcwd(),'lesions_image_data/Vascular lesions'))
-    '''
+        lesion_images[formatted_name] = os.listdir(os.path.join(os.getcwd(), f'lesions_image_data/{lesion_type}'))
 
     path = pathlib.Path(os.path.join(os.getcwd(),'lesions_image_data'))
 
@@ -77,6 +60,6 @@ def visualize_data():
             image = open_random_image(os.path.join(os.getcwd(),f'lesions_image_data/{lesion}'))
             image.save(f'{lesion.replace(" ", "_").lower()}_{i+1}.jpg')
 
-    return path, total_images
+    return path, lesion_images
 
 visualize_data()
